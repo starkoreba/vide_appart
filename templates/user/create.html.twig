@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block content %}
+<div class="new">
+    <h1 class="bidul">Création de compte utilisateur</h1>
+
+    {{ form_start(addUser) }}
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Nom</span>
+    {{ form_widget(addUser.name, {'attr' : {'class' : 'form-control'}}) }}
+    
+    </div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Description</span> 
+    {{ form_widget(addUser.description, {'attr' : {'class' : 'form-control'}}) }}
+    
+    
+    </div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Ville</span>
+    {{ form_widget(addUser.city, {'attr' : {'class' : 'form-control'}}) }}
+    
+    </div>
+    {#<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Code postale</span>
+    {{ form_widget(addUser.zipcode, {'attr' : {'class' : 'form-control'}}) }}
+    
+    </div>#}
+    <hr>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    {{ form_widget(addUser.email, {'attr' : {'class' : 'form-control'}}) }}
+    
+    </div>
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Mot de passe</span>
+    {{ form_widget(addUser.pswd, {'attr' : {'class' : 'form-control'}}) }}
+    </div>
+    
+    {#<span class="input-group-text" id="inputGroup-sizing-sm"></span>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">#}
+
+        
+        <button type="submit" class="btn btn-primary">Inscription</button>
+    {{ form_end(addUser)}}
+</div>
+
+{% endblock %}

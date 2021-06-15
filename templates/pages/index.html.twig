@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PagesController!{% endblock %}
+{% block header %}
+<div class="header-bg"><img src="https://cache.marieclaire.fr/data/photo/w1000_ci/1jv/idees-deco-salon2.jpg" class="img-fluid rounded mx-auto d-block img-blur" alt="..."></div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="profile row">
+        <div class="card col-3" style="width: 25rem;">
+        <h4 class"card-title"><i class="fas fa-map-marker-alt"></i> {{user.city}}, {{user.zipcode}}</h4>
+            <div class="card-body">
+                
+                <h5 class="card-title">{{ user.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-arrow-down"></i> Meuble descendus !</h6>
+                <p class="card-text">{{ user.description }}</p>
+                <a href="{{ path('user_show', {id : user.id})}}" class="btn btn-primary btn-sm card-link">Afficher les avis</a>
+                <a href="#" class="btn btn-secondary btn-sm card-link">Laissez un avis</a>
+            </div>
+        </div>
+         
+        <div class=" container col-9">
+            <div class="article row justify-content-between">
+                {% for product in products %}
+                    <div class="card col-8 col-sm-6" style="width: 15rem;">
+                        <img src="{{ product.image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{product.price}}&#8364;</p>
+                            <a href="#" class="btn btn-color"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+                        </div>
+                
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+{% endblock %}

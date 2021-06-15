@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Caveat&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: "Open Sans", sans-serif, 1.5rem;
+  transition: 0.55s;
+}
+.contain {
+  background-image: url("../img/fond.png");
+  line-height: 1.5;
+  padding-bottom: 50px;
+}
+.article .card {
+  margin-top: 10%;
+}
+.test {
+  font-size: 20px;
+  color: red;
+}
+.header-bg {
+  background-image: url("https://cdn.discordapp.com/attachments/705107768452972574/854323189156020224/unknown.png");
+  background-size: cover;
+}
+.navbar {
+  font-family: "Roboto Slab", serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card-body h5,
+h6,
+p {
+  padding: 15px;
+}
+.card h4 {
+  background-color: #d6e3d8;
+  padding: 15px;
+  width: 100%;
+}
+.card {
+  padding: 0;
+}
+.card-body {
+  padding-top: 0;
+}
+.btn-color {
+  background-color: #ffd932;
+}
+.new {
+  margin-top: 2em;
+}
+.new h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.new form {
+  width: 85%;
+  margin: 0 auto;
+}
+footer {
+  background-color: #29362e;
+  padding: 100px 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: snow;
+}
+footer p {
+  padding: 20px;
+  margin: 0;
+}
