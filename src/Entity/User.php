@@ -5,11 +5,15 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity("email", message="Un compte existe déjà à cette adresse")
  */
 class User
 {
@@ -26,9 +30,10 @@ class User
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
+     *  @Assert\Email
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -37,6 +42,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Minimum 8 caractères")
      */
     private $pswd;
 
@@ -112,7 +118,7 @@ class User
         return $this;
     }
 
-    public function getPswd(): ?string
+    public function getPassword(): ?string
     {
         return $this->pswd;
     }
@@ -224,4 +230,6 @@ class User
 
         return $this;
     }
+
+    
 }

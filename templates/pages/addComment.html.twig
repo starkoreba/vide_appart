@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Poster un avis{% endblock %}
+
+{% block content %}
+<div class="new">
+    <h1 class="bidul">Laisser un avis au vendeur</h1>
+
+    {{ form_start(addCom) }}
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Pseudo</span>
+    {{ form_widget(addCom.pseudo, {'attr' : {'class' : 'form-control', 'placeholder': "Pseudo..." }}) }}
+    </div>
+
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon2">Titre</span> 
+    {{ form_widget(addCom.title, {'attr' : {'class' : 'form-control', 'placeholder': "Titre..."}}) }}
+    </div>
+
+    <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">Contenu</span>
+    {{ form_widget(addCom.content, {'attr' : {'class' : 'form-control', 'placeholder': "255 caractères maximum..."}}) }}
+    </div>
+        
+        <button type="submit" class="btn btn-outline-success">Poster</button>
+    {{ form_end(addCom)}}
+</div>
+
+{% endblock %}

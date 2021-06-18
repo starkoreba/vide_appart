@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block content %}
+{% if items | length > 0 %}
+<div class="p-5">
+  <h1 class="p-5 text-center">Votre panier</h1>
+  
+  <table class="table table-borderless">
+    <thead><tr>
+        <th>Nom du produit</th>
+        <th>Prix</th>
+        <th>Quantité</th>
+        <th>Total</th>
+        <th></th>
+    </tr></thead>
+    <tbody>
+      {% for item in items %}
+        <tr>
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.product.price }}&euro;</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.product.price * item.quantity }}&euro;</td>
+          <td>
+            <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+          </td>
+        </tr>
+        
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-right">Total :</td>
+        <td>{{ total }}&euro;</td>
+        <td><a href="{{ path('cart_validation', {id :1})}}"><input type="submit" class="btn btn-outline-success"></a></td>
+      </tr>
+    </tfoot>
+  </table>
+{% else %}
+  <div class="alert alert-danger" role="alert">
+  Votre panier est vide 
+</div>
+<p class="text-center"><a href="/" class="btn btn-outline-danger m-3">Retour à la page d'accueil</a></p>
+
+  
+{% endif %}
+</div>
+
+
+{% endblock %}

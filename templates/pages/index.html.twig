@@ -1,33 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PagesController!{% endblock %}
+{% block title %}Bienvenu chez Emma{% endblock %}
 {% block header %}
 <div class="header-bg"><img src="https://cache.marieclaire.fr/data/photo/w1000_ci/1jv/idees-deco-salon2.jpg" class="img-fluid rounded mx-auto d-block img-blur" alt="..."></div>
 {% endblock %}
 {% block content %}
 <div class="container">
-    <div class="profile row">
-        <div class="card col-3" style="width: 25rem;">
-        <h4 class"card-title"><i class="fas fa-map-marker-alt"></i> {{user.city}}, {{user.zipcode}}</h4>
-            <div class="card-body">
-                
+    <div class="row">
+        <div class="card col-5 shadow mb-5 bg-body rounded" style="width: 25rem; height: fit-content;">
+        <h4 class="card-title city"><i class="fas fa-map-marker-alt"></i> {{user.city}}, {{user.zipcode}}</h4>
+            <div class="card-body profile">
                 <h5 class="card-title">{{ user.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-arrow-down"></i> Meuble descendus !</h6>
                 <p class="card-text">{{ user.description }}</p>
                 <a href="{{ path('user_show', {id : user.id})}}" class="btn btn-primary btn-sm card-link">Afficher les avis</a>
-                <a href="#" class="btn btn-secondary btn-sm card-link">Laissez un avis</a>
+                <img src="https://geeko.lesoir.be/wp-content/uploads/2019/03/capture-e1552573152526.png" style="width: 21.5rem; padding-top:10px;" alt="">
             </div>
         </div>
          
-        <div class=" container col-9">
+        <div class=" container col-7">
             <div class="article row justify-content-between">
                 {% for product in products %}
-                    <div class="card col-8 col-sm-6" style="width: 15rem;">
-                        <img src="{{ product.image }}" class="card-img-top" alt="...">
+                    <div class="shadow-sm card col-8 col-sm-6" style="width: 15rem;">
+                        <a href="{{ path('product', {id: product.id})}}"><img src="{{ product.image }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">{{product.price}}&#8364;</p>
-                            <a href="#" class="btn btn-color"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+                            <h5 class="card-title">{{ product.name }}</a></h5>
+                            <p class="card-text price">{{product.price}}&#8364; <a href="{{ path('cart_add', {'id' : product.id})}}" class="btn btn-color btn-price"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></p>
+                            
                         </div>
                 
                     </div>
